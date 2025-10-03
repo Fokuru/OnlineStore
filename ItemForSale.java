@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ItemForSale
 {
     private double price;
@@ -32,7 +34,7 @@ public class ItemForSale
     public String returnGenres() {
         String genreList = "";
         for (int i = 0; i < genres.size(); i++) {
-            genreList = genreList + " " + genres.get(i);
+            genreList = genreList + genres.get(i) + ", ";
         }
         return genreList;
     }

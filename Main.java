@@ -6,7 +6,21 @@ public class Main
      public static void main(String[] args)
      {
         Store s = new Store();
-        Book b = new Book();
+        Book b = new Book("Endling: The Last", 12.99, "Kirsten White", 320);
         System.out.println(b instanceof ItemForSale);
+
+         s.addItem(b);
+         System.out.println(s.showItems());
+
+         Movie m = new Movie("Inception", 14.99, "Christopher Nolan", 148);
+         s.addItem(m);
+         System.out.println(s.showItems());
+
+         System.out.println(s.creator("Inception"));
+         System.out.println(s.creator("Endling: The Last"));
+         System.out.println(s.sellItem(m));
+         System.out.println(s.showItems());
+         System.out.println(s.sellItem(b));
+         System.out.println(s.showItems());
      }
 }

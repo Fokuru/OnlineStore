@@ -21,31 +21,43 @@
 
     Where these variables are stored and how to name them is up to you!
 */
+
+import java.util.ArrayList;
+
+
 public class Store
 {
   double profit;
-  ArrayList items;
-
+  ArrayList<ItemForSale> items;
   public Store() {
     profit = 0.0;
+    items = new ArrayList<ItemForSale>();
   }
 
   public String showItems() {
+    if (items.size() == 0) {
+      return "No items available";
+    }
     String placeHolder = "";
-    for (int i = 0; i < items.length(); i++) {
-      placeHolder = placeHolder + " " + items[i];
+    for (int i = 0; i < items.size(); i++) {
+      if (i == items.size() - 1) {
+        placeHolder = placeHolder + items.get(i).returnName();
+        break;
+      }
+      placeHolder = placeHolder + items.get(i).returnName() + ", ";
     }
     return placeHolder;
   }
 
   public void addItem(ItemForSale toAdd) {
-    ArrayList.add(toAdd);
+    items.add(toAdd);
   }
 
   public Boolean sellItem(ItemForSale itemName) {
-    for (int i = 0; i < items.length(); i++) {
-      if (items[i].returnName().equals(itemName)) {
-        profit = profit + items[i].returnPrice();
+    for (int i = 0; i < items.size(); i++) {
+      if (items.get(i).returnName().equals(itemName.returnName()) && items.get(i).returnPrice() == itemName.returnPrice() 
+          && items.get(i).authorName().equals(itemName.authorName()) && items.get(i).returnGenres().equals(itemName.returnGenres())) {
+        profit = profit + items.get(i).returnPrice();
         items.remove(i);
         return true;
       }
@@ -53,10 +65,10 @@ public class Store
     return false;
   }
 
-  public String creator(itemName) {
-    for (int i = 0; i < items.length(); i++) {
-      if (items[i].returnName().equals(itemName)) {
-        return items[i].authorName();
+  public String creator(String itemName) {
+    for (int i = 0; i < items.size(); i++) {
+      if (items.get(i).returnName().equals(itemName)) {
+        return items.get(i).authorName();
       }
     }
     return null;
