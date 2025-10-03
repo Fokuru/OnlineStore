@@ -22,5 +22,10 @@ public class Main
          System.out.println(s.showItems());
          System.out.println(s.sellItem(b));
          System.out.println(s.showItems());
+
+         System.out.println(s.sellItem(b));
+         System.out.println(s.showItems());
+
+         System.out.println(s.profit);
      }
 }
