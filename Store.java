@@ -23,5 +23,42 @@
 */
 public class Store
 {
+  double profit;
+  ArrayList items;
 
+  public Store() {
+    profit = 0.0;
+  }
+
+  public String showItems() {
+    String placeHolder = "";
+    for (int i = 0; i < items.length(); i++) {
+      placeHolder = placeHolder + " " + items[i];
+    }
+    return placeHolder;
+  }
+
+  public void addItem(ItemForSale toAdd) {
+    ArrayList.add(toAdd);
+  }
+
+  public Boolean sellItem(ItemForSale itemName) {
+    for (int i = 0; i < items.length(); i++) {
+      if (items[i].returnName().equals(itemName)) {
+        profit = profit + items[i].returnPrice();
+        items.remove(i);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public String creator(itemName) {
+    for (int i = 0; i < items.length(); i++) {
+      if (items[i].returnName().equals(itemName)) {
+        return items[i].authorName();
+      }
+    }
+    return null;
+  }
 }
