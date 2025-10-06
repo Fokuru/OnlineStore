@@ -1,3 +1,6 @@
+// By: Raley Wilkin
+// Date: 9/12/2023
+// Description: The main class to test the functionality of the online store system.
 
 public class Main
 {
