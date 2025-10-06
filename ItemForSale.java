@@ -32,10 +32,13 @@ public class ItemForSale
     }
 
     public String returnGenres() {
-        String genreList = "";
-        for (int i = 0; i < genres.size(); i++) {
-            genreList = genreList + genres.get(i) + ", ";
+        if (genres.size() == 0) {
+            return name + " has no recorded genres";
         }
-        return genreList;
+        String genreList = genres.get(0);
+        for (int i = 1; i < genres.size(); i++) {
+            genreList = genreList + ", " +genres.get(i);
+        }
+        return "The genres for " + name + " are: " +  genreList;
     }
 }
